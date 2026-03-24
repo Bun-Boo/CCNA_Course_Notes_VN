@@ -1,9 +1,25 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect, useRef } from 'react';
 import LanguageSwitcher from './LanguageSwitcher';
 import searchIndex from '../search-index.json';
 
 const Navigation = ({ files, activeFile, onSelect, isOpen, onClose, lang, onLangToggle }) => {
   const [searchQuery, setSearchQuery] = useState('');
+  const activeItemRef = useRef(null);
+  const prevActiveFile = useRef(activeFile);
+
+  // Auto-scroll to active item with precision
+  useEffect(() => {
+    if (activeItemRef.current && activeFile !== prevActiveFile.current) {
+      const timer = setTimeout(() => {
+        activeItemRef.current.scrollIntoView({
+          behavior: 'smooth',
+          block: 'center'
+        });
+      }, 100);
+      prevActiveFile.current = activeFile;
+      return () => clearTimeout(timer);
+    }
+  }, [activeFile]);
 
   const filteredFiles = useMemo(() => {
     if (!searchQuery.trim()) return files;
@@ -106,6 +122,7 @@ const Navigation = ({ files, activeFile, onSelect, isOpen, onClose, lang, onLang
                     return (
                       <button
                         key={note.file}
+                        ref={isActive ? activeItemRef : null}
                         onClick={() => {
                           onSelect(note.file);
                           if (window.innerWidth < 1024) onClose();

@@ -14,7 +14,77 @@ function App() {
   const [localSearchQuery, setLocalSearchQuery] = useState('');
   const [matchIndex, setMatchIndex] = useState(-1);
   const [matchCount, setMatchCount] = useState(0);
+  const [showResumePrompt, setShowResumePrompt] = useState(false);
+  const [persistedProgress, setPersistedProgress] = useState(null);
+  const [pendingScroll, setPendingScroll] = useState(null);
   const scrollContainerRef = useRef(null);
+
+  // Load progress on mount
+  useEffect(() => {
+    const saved = localStorage.getItem('ccna-progress');
+    if (saved) {
+      const parsed = JSON.parse(saved);
+      // Only show prompt if it's different from the default Day 1
+      if (parsed.file !== activeFile || parsed.lang !== lang || parsed.scroll > 100) {
+        setPersistedProgress(parsed);
+        setShowResumePrompt(true);
+        const timer = setTimeout(() => setShowResumePrompt(false), 15000);
+        return () => clearTimeout(timer);
+      }
+    }
+  }, []);
+
+  // Save progress on scroll
+  useEffect(() => {
+    const container = scrollContainerRef.current;
+    if (!container) return;
+
+    const handleScroll = () => {
+      if (activeFile && !isLoading) {
+        const progress = { 
+          file: activeFile, 
+          lang: lang, 
+          scroll: container.scrollTop 
+        };
+        localStorage.setItem('ccna-progress', JSON.stringify(progress));
+      }
+    };
+
+    container.addEventListener('scroll', handleScroll, { passive: true });
+    return () => container.removeEventListener('scroll', handleScroll);
+  }, [activeFile, lang, isLoading]);
+
+  // Restore scroll with multiple attempts to handle layout shifts
+  useEffect(() => {
+    if (!isLoading && pendingScroll !== null && scrollContainerRef.current) {
+      let attempts = 0;
+      const container = scrollContainerRef.current;
+      
+      const performScroll = () => {
+        container.scrollTo({ top: pendingScroll, behavior: 'smooth' });
+        attempts++;
+        
+        // Check if we reached the target or if we should stop trying
+        if (Math.abs(container.scrollTop - pendingScroll) < 5 || attempts > 5) {
+          setPendingScroll(null);
+        } else {
+          setTimeout(performScroll, 300);
+        }
+      };
+
+      const timer = setTimeout(performScroll, 500);
+      return () => clearTimeout(timer);
+    }
+  }, [isLoading, pendingScroll]);
+
+  const handleResume = () => {
+    if (persistedProgress) {
+      setActiveFile(persistedProgress.file);
+      setLang(persistedProgress.lang);
+      setPendingScroll(persistedProgress.scroll || 0);
+      setShowResumePrompt(false);
+    }
+  };
 
   const toggleTheme = (e) => {
     const newTheme = theme === 'dark' ? 'light' : 'dark';
@@ -122,8 +192,8 @@ function App() {
       const response = await fetch(`/${folder}/${file}`);
       const text = await response.text();
       setContent(text);
-      if (scrollContainerRef.current) {
-        scrollContainerRef.current.scrollTo({ top: 0, behavior: 'smooth' });
+      if (scrollContainerRef.current && pendingScroll === null) {
+        scrollContainerRef.current.scrollTo({ top: 0 });
       }
     } catch (error) {
       console.error('Failed to load note:', error);
@@ -213,6 +283,58 @@ function App() {
           </div>
         </div>
       </div>
+      {/* Resume Progress Modal */}
+      {showResumePrompt && persistedProgress && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6 animate-fade-in">
+          {/* Backdrop */}
+          <div 
+            className="absolute inset-0 bg-bg-deep/80 backdrop-blur-xl"
+            onClick={() => setShowResumePrompt(false)}
+          />
+          
+          {/* Modal Card */}
+          <div className="relative bg-bg-surface border border-accent-amber/30 p-8 sm:p-10 rounded-[2rem] shadow-[0_45px_100px_rgba(0,0,0,0.8)] flex flex-col items-center text-center max-w-md w-full animate-fade-up sm:mt-[-5vh]">
+            <div className="w-20 h-20 rounded-3xl bg-accent-amber/10 flex items-center justify-center text-accent-amber mb-8 border border-accent-amber/20 rotate-3 shadow-[0_0_30px_rgba(255,184,48,0.1)]">
+              <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"></path></svg>
+            </div>
+            
+            <div className="space-y-4 mb-10">
+              <p className="text-accent-coral font-display text-xs font-black uppercase tracking-[0.4em] opacity-80">PROGRESS RESTORE</p>
+              <h3 className="text-text-primary font-display text-2xl sm:text-3xl font-black leading-tight tracking-tighter">
+                {lang === 'vi' ? 'Tiếp tục bài học dở dang?' : 'Resume where you left off?'}
+              </h3>
+              <p className="text-text-secondary font-body text-sm leading-relaxed opacity-70">
+                {lang === 'vi' 
+                  ? 'Chào mừng quay trở lại! Chúng tôi tìm thấy tiến độ học tập gần nhất của bạn. Bạn có muốn quay lại đó ngay bây giờ không?' 
+                  : 'Welcome back! We found your last session progress. Would you like to jump right back into the curriculum?'}
+              </p>
+            </div>
+
+            <div className="flex flex-col sm:flex-row gap-4 w-full">
+              <button 
+                onClick={handleResume}
+                className="flex-1 bg-accent-amber text-bg-deep font-display text-xs font-black py-5 rounded-2xl hover:scale-105 transition-all active:scale-95 uppercase tracking-widest shadow-[0_15px_30px_rgba(255,184,48,0.3)]"
+              >
+                {lang === 'vi' ? 'TIẾP TỤC HỌC' : 'RESUME LEARNING'}
+              </button>
+              <button 
+                onClick={() => setShowResumePrompt(false)}
+                className="flex-1 bg-white/5 text-text-primary border border-white/10 font-display text-xs font-black py-5 rounded-2xl hover:bg-white/10 transition-all uppercase tracking-widest"
+              >
+                {lang === 'vi' ? 'ĐỂ SAU' : 'LATER'}
+              </button>
+            </div>
+            
+            <button 
+              onClick={() => setShowResumePrompt(false)}
+              className="absolute top-6 right-6 text-text-dim hover:text-accent-coral transition-colors"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+            </button>
+          </div>
+        </div>
+      )}
+
       {/* Mobile Backdrop */}
       {isSidebarOpen && (
         <div 
