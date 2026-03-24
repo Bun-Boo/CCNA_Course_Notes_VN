@@ -1,0 +1,510 @@
+[
+  {
+    "day": 1,
+    "file": "Network_Devices.md",
+    "title_en": "Networking Devices",
+    "title_vi": "Thiết bị Mạng (Networking Devices)",
+    "lectureId": "H8W9oMNSuwo",
+    "labId": "a1Im6GYaSno"
+  },
+  {
+    "day": 2,
+    "file": "Interfaces_and_Cables.md",
+    "title_en": "Interfaces And Cables",
+    "title_vi": "Giao diện và Cáp (Interfaces And Cables)",
+    "lectureId": "ieTH5lVhNaY",
+    "labId": "K6Qt23sY68Y"
+  },
+  {
+    "day": 3,
+    "file": "OSI_Model_TCPSuite.md",
+    "title_en": "OSI Model and TCP/IP Suite",
+    "title_vi": "Mô hình OSI và Bộ giao thức TCP/IP (OSI Model and TCP/IP Suite)",
+    "lectureId": "yM-XNq9ADlI",
+    "labId": "7nmYoL0t2tU"
+  },
+  {
+    "day": 4,
+    "file": "Intro_to_CLI.md",
+    "title_en": "Intro to the CLI",
+    "title_vi": "Giới thiệu về CLI (Intro to the CLI)",
+    "lectureId": "IYbtai7Nu2g",
+    "labId": "SDocmq1c05s"
+  },
+  {
+    "day": 5,
+    "file": "Ethernet_LAN_Switching_Part1.md",
+    "title_en": "Ethernet LAN Switching - Part 1",
+    "title_vi": "Chuyển mạch LAN Ethernet - Phần 1 (Ethernet LAN Switching - Part 1)",
+    "lectureId": "u2n762WG0Vo"
+  },
+  {
+    "day": 6,
+    "file": "Ethernet_LAN_Switching_Part2.md",
+    "title_en": "Ethernet LAN Switching - Part 2",
+    "title_vi": "Chuyển mạch LAN Ethernet - Phần 2 (Ethernet LAN Switching - Part 2)",
+    "lectureId": "5q1pqdmdPjo",
+    "labId": "Ig0dSaOQDI8"
+  },
+  {
+    "day": 7,
+    "file": "IPv4_Addressing_Part1.md",
+    "title_en": "IPv4 Addressing - Part 1",
+    "title_vi": "Địa chỉ IPv4 - Phần 1 (IPv4 Addressing - Part 1)",
+    "lectureId": "3ROdsfEUuhs"
+  },
+  {
+    "day": 8,
+    "file": "IPv4_Addressing_Part2.md",
+    "title_en": "IPv4 Addressing - Part 2",
+    "title_vi": "Địa chỉ IPv4 - Phần 2 (IPv4 Addressing - Part 2)",
+    "lectureId": "FiAatRd84XI",
+    "labId": "e1jbvyMeS5I"
+  },
+  {
+    "day": 9,
+    "file": "Switch_Interfaces.md",
+    "title_en": "Switch Interfaces",
+    "title_vi": "Giao diện Switch (Switch Interfaces)",
+    "lectureId": "cCqluocfQe0",
+    "labId": "rzDb5DoBKRk"
+  },
+  {
+    "day": 10,
+    "file": "The_IPv4_Header.md",
+    "title_en": "The IPv4 Header",
+    "title_vi": "Tiêu đề IPv4 (The IPv4 Header)",
+    "lectureId": "aQB22y4liXA"
+  },
+  {
+    "day": 11,
+    "file": "Routing_Fundamentals_Part1.md",
+    "title_en": "Routing Fundamentals - Part 1",
+    "title_vi": "Nguyên lý Định tuyến - Phần 1 (Routing Fundamentals - Part 1)",
+    "lectureId": "aHwAm8GYbn8",
+    "labId": "XHxOtIav2k8"
+  },
+  {
+    "day": 11,
+    "file": "Static_Routing_Part2.md",
+    "title_en": "Static Routing - Part 2",
+    "title_vi": "Định tuyến Tĩnh - Phần 2 (Static Routing - Part 2)",
+    "lectureId": "aHwAm8GYbn8",
+    "labId": "XHxOtIav2k8"
+  },
+  {
+    "day": 12,
+    "file": "Life_of_a_Packet.md",
+    "title_en": "Life of a Packet",
+    "title_vi": "Vòng đời của một Gói tin (Life of a Packet)",
+    "lectureId": "4YrYV2io3as",
+    "labId": "bfsEqDeHbpI"
+  },
+  {
+    "day": 13,
+    "file": "Subnetting_Part1.md",
+    "title_en": "Subnetting - Part 1",
+    "title_vi": "Chia mạng con (Subnetting) - Phần 1",
+    "lectureId": "bQ8sdpGQu8c"
+  },
+  {
+    "day": 14,
+    "file": "Subnetting_Part2.md",
+    "title_en": "Subnetting - Part 2",
+    "title_vi": "Chia mạng con (Subnetting) - Phần 2",
+    "lectureId": "IGhd-0di0Qo"
+  },
+  {
+    "day": 15,
+    "file": "Subnetting_VLSM_Part3.md",
+    "title_en": "Subnetting (VLSM) - Part 3",
+    "title_vi": "Chia mạng con (VLSM) - Phần 3",
+    "lectureId": "z-JqCedc9EI",
+    "labId": "Rn_E1Qv8--I"
+  },
+  {
+    "day": 16,
+    "file": "VLAN_Part1.md",
+    "title_en": "VLANS - Part 1",
+    "title_vi": "VLAN - Phần 1",
+    "lectureId": "cjFzOnm6u1g",
+    "labId": "-tq7f3xtyLQ"
+  },
+  {
+    "day": 17,
+    "file": "VLAN_Part2.md",
+    "title_en": "VLANS - Part 2",
+    "title_vi": "VLAN - Phần 2",
+    "lectureId": "Jl9OOzNaBDU",
+    "labId": "iRkFE_lpYgc"
+  },
+  {
+    "day": 18,
+    "file": "VLAN_Part3.md",
+    "title_en": "VLANS - Part 3",
+    "title_vi": "VLAN - Phần 3",
+    "lectureId": "bV6_Yf6X66E",
+    "labId": "MQcCr3QW1vE"
+  },
+  {
+    "day": 19,
+    "file": "DTP_VTP.md",
+    "title_en": "DTP / VTP",
+    "title_vi": "DTP / VTP",
+    "lectureId": "JtQV_0Sjszg",
+    "labId": "ngTns2vF_44"
+  },
+  {
+    "day": 20,
+    "file": "Spanning_Tree_Protocol_Part1.md",
+    "title_en": "Spanning Tree Protocol - Part 1",
+    "title_vi": "Giao thức Cây khung (STP) - Phần 1",
+    "lectureId": "j-bK-EFt9cY",
+    "labId": "Ev9gy7B5hx0"
+  },
+  {
+    "day": 21,
+    "file": "Spanning_Tree_Protocol_Part2.md",
+    "title_en": "Spanning Tree Protocol - Part 2",
+    "title_vi": "Giao thức Cây khung (STP) - Phần 2",
+    "lectureId": "nWpldCc8msY",
+    "labId": "5rpaeJNig2o"
+  },
+  {
+    "day": 22,
+    "file": "Rapid_Spanning_Tree_Protocol.md",
+    "title_en": "Rapid Spanning Tree Protocol",
+    "title_vi": "Giao thức Cây khung Nhanh (RSTP)",
+    "lectureId": "EpazNsLlPps",
+    "labId": "YG7r4XHy2JU"
+  },
+  {
+    "day": 23,
+    "file": "Etherchannel.md",
+    "title_en": "Etherchannel",
+    "title_vi": "Etherchannel",
+    "lectureId": "N8PiZDld6Zc",
+    "labId": "ffnJ5oBIObY"
+  },
+  {
+    "day": 24,
+    "file": "DynamicRouting.md",
+    "title_en": "Dynamic Routing",
+    "title_vi": "Định tuyến Động (Dynamic Routing)",
+    "lectureId": "pvuaoJ9YzoI",
+    "labId": "LeLRWjfylcs"
+  },
+  {
+    "day": 25,
+    "file": "RIP_and_EIGRP.md",
+    "title_en": "RIP / EIGRP",
+    "title_vi": "RIP / EIGRP",
+    "lectureId": "VtzfTA21ht0",
+    "labId": "UEyQW-EcnY8"
+  },
+  {
+    "day": 26,
+    "file": "OSPF_Part1.md",
+    "title_en": "OSPF - Part 1",
+    "title_vi": "OSPF - Phần 1",
+    "lectureId": "3ew26ujkiDI",
+    "labId": "Goekjm3bK5o"
+  },
+  {
+    "day": 27,
+    "file": "OSPF_Part2.md",
+    "title_en": "OSPF - Part 2",
+    "title_vi": "OSPF - Phần 2",
+    "lectureId": "43WnpwQMolo",
+    "labId": "uho5Z2nFhb8"
+  },
+  {
+    "day": 28,
+    "file": "OSPF_Part3.md",
+    "title_en": "OSPF - Part 3",
+    "title_vi": "OSPF - Phần 3",
+    "lectureId": "LIEACBqlntY",
+    "labId": "pJKFahkqMU8"
+  },
+  {
+    "day": 29,
+    "file": "First_Hop_Redundancy_Protocols.md",
+    "title_en": "First Hop Redundancy Protocol",
+    "title_vi": "Giao thức Dự phòng Bước nhảy Đầu tiên (FHRP)",
+    "lectureId": "ZNuXyOXae5U",
+    "labId": "5Gf9nL6bX_Y"
+  },
+  {
+    "day": 30,
+    "file": "TCP_and_UDP.md",
+    "title_en": "TCP and UDP",
+    "title_vi": "TCP và UDP",
+    "lectureId": "E-9P_9oW7OQ",
+    "labId": "9Z-O_9oW7OQ"
+  },
+  {
+    "day": 31,
+    "file": "IPv6_Part1.md",
+    "title_en": "IPv6 - Part 1",
+    "title_vi": "IPv6 - Phần 1",
+    "lectureId": "yW9P3N080zM",
+    "labId": "7HwXCeXDTpA"
+  },
+  {
+    "day": 32,
+    "file": "IPv6_Part2.md",
+    "title_en": "IPv6 - Part 2",
+    "title_vi": "IPv6 - Phần 2",
+    "lectureId": "Luei0p-2h10"
+  },
+  {
+    "day": 33,
+    "file": "IPv6_Part3.md",
+    "title_en": "IPv6 - Part 3",
+    "title_vi": "IPv6 - Phần 3",
+    "lectureId": "yW9P3N080zM"
+  },
+  {
+    "day": 34,
+    "file": "Standard_Access_Control_Lists.md",
+    "title_en": "Standard Access Control List",
+    "title_vi": "Danh sách Kiểm soát Truy cập (ACL) Tiêu chuẩn",
+    "lectureId": "yW9P3N080zM",
+    "labId": "cgMsoIQB9Wk"
+  },
+  {
+    "day": 35,
+    "file": "Extended_Access_Control_Lists.md",
+    "title_en": "Extended Access Control List",
+    "title_vi": "Danh sách Kiểm soát Truy cập (ACL) Mở rộng",
+    "lectureId": "_hnMZBzXRRk",
+    "labId": "1cuMzWBrEYs"
+  },
+  {
+    "day": 36,
+    "file": "CDP_and_LLDP.md",
+    "title_en": "CDP and LLDP",
+    "title_vi": "CDP và LLDP",
+    "lectureId": "_hnMZBzXRRk",
+    "labId": "4s8qqL7R9W8"
+  },
+  {
+    "day": 37,
+    "file": "NTP.md",
+    "title_en": "NTP - Network Time Protocol",
+    "title_vi": "NTP - Giao thức Thời gian Mạng",
+    "lectureId": "qGJaJx7OfUo",
+    "labId": "Miys7Ft9wWI"
+  },
+  {
+    "day": 38,
+    "file": "DNS.md",
+    "title_en": "DNS - Domain Name System",
+    "title_vi": "DNS - Hệ thống Phân giải Tên miền",
+    "lectureId": "4C6eeQes4cs",
+    "labId": "7D_FapNrRUM"
+  },
+  {
+    "day": 39,
+    "file": "DHCP.md",
+    "title_en": "DHCP - Dynamic Host Configuration Protocol",
+    "title_vi": "DHCP - Giao thức Cấu hình Host Động",
+    "lectureId": "hzkleGAC2_Y",
+    "labId": "cgMsoIQB9Wk"
+  },
+  {
+    "day": 40,
+    "file": "SNMP.md",
+    "title_en": "SNMP - Simple Network Management Protocol",
+    "title_vi": "SNMP - Giao thức Quản lý Mạng Đơn giản",
+    "lectureId": "HXu0Ifj0oWU",
+    "labId": "v8WxIytUdS4"
+  },
+  {
+    "day": 41,
+    "file": "SYSLOG.md",
+    "title_en": "SYSLOG",
+    "title_vi": "SYSLOG",
+    "lectureId": "RaQPSKQ4J5A",
+    "labId": "-R_CYM6Wm-Y"
+  },
+  {
+    "day": 42,
+    "file": "SSH.md",
+    "title_en": "SSH - Secure Shell",
+    "title_vi": "SSH - Secure Shell",
+    "lectureId": "AvgYqI2qSD4",
+    "labId": "H8W9oMNSuwo"
+  },
+  {
+    "day": 43,
+    "file": "FTP_and_TFTP.md",
+    "title_en": "FTP and TFTP",
+    "title_vi": "FTP và TFTP",
+    "lectureId": "j-bK-EFt9cY"
+  },
+  {
+    "day": 44,
+    "file": "NAT_Static_Part1.md",
+    "title_en": "NAT (Static) - Part 1",
+    "title_vi": "NAT (Tĩnh) - Phần 1",
+    "lectureId": "EpazNsLlPps"
+  },
+  {
+    "day": 45,
+    "file": "NAT_Dynamic_Part2.md",
+    "title_en": "NAT (Dynamic) - Part 2",
+    "title_vi": "NAT (Động) - Phần 2",
+    "lectureId": "N8PiZDld6Zc"
+  },
+  {
+    "day": 46,
+    "file": "QoS_VoiceLan.md",
+    "title_en": "QoS (Voice VLAN) - Part 1",
+    "title_vi": "QoS (Voice VLAN) - Phần 1",
+    "lectureId": "pvuaoJ9YzoI"
+  },
+  {
+    "day": 47,
+    "file": "QoS_Quality_of_Service.md",
+    "title_en": "QoS (Quality of Service) - Part 2",
+    "title_vi": "QoS (Chất lượng Dịch vụ) - Phần 2",
+    "lectureId": "VtzfTA21ht0"
+  },
+  {
+    "day": 48,
+    "file": "Security_Fundamentals.md",
+    "title_en": "Security Fundamentals",
+    "title_vi": "Nguyên lý Bảo mật (Security Fundamentals)",
+    "lectureId": "3ew26ujkiDI",
+    "labId": "Goekjm3bK5o"
+  },
+  {
+    "day": 49,
+    "file": "Port_Security.md",
+    "title_en": "Port Security",
+    "title_vi": "Bảo mật Cổng (Port Security)",
+    "lectureId": "sHN3jOJIido",
+    "labId": "zZwhrxKeGj8"
+  },
+  {
+    "day": 50,
+    "file": "DHCP_Snooping.md",
+    "title_en": "DHCP Snooping",
+    "title_vi": "DHCP Snooping",
+    "lectureId": "qYYeg2kz1yE",
+    "labId": "YMom_e545H4"
+  },
+  {
+    "day": 51,
+    "file": "Dynamic_Arp_Inspection.md",
+    "title_en": "Dynamic Arp Inspection",
+    "title_vi": "Dynamic Arp Inspection (DAI)",
+    "lectureId": "HwbTKaIvL6s",
+    "labId": "oLF2mbmYMAk"
+  },
+  {
+    "day": 52,
+    "file": "LAN_Architectures.md",
+    "title_en": "LAN Architectures",
+    "title_vi": "Kiến trúc LAN (LAN Architectures)",
+    "lectureId": "PvyEcLhmNBk",
+    "labId": "BgIEhyoETgU"
+  },
+  {
+    "day": 53,
+    "file": "WAN_Architectures.md",
+    "title_en": "WAN Architectures",
+    "title_vi": "Kiến trúc WAN (WAN Architectures)",
+    "lectureId": "BW3fQgdf4-w",
+    "labId": "_MMuU5viinM"
+  },
+  {
+    "day": 54,
+    "file": "Virtualization_Containers.md",
+    "title_en": "Virtualization (Containers) - Part 2",
+    "title_vi": "Ảo hóa (Containers) - Phần 2",
+    "lectureId": "_S3greGajJA",
+    "labId": "swqADfQk2jM"
+  },
+  {
+    "day": 54,
+    "file": "Virtualization_VRF_Part3.md",
+    "title_en": "Virtualization (VRF) - Part3",
+    "title_vi": "Ảo hóa (VRF) - Phần 3",
+    "lectureId": "_S3greGajJA",
+    "labId": "swqADfQk2jM"
+  },
+  {
+    "day": 54,
+    "file": "Virtualizations_and_Cloud_Part1.md",
+    "title_en": "Virtualization and Cloud - Part1",
+    "title_vi": "Ảo hóa và Đám mây - Phần 1 (Virtualization and Cloud)",
+    "lectureId": "_S3greGajJA",
+    "labId": "swqADfQk2jM"
+  },
+  {
+    "day": 55,
+    "file": "Wireless_Fundamentals.md",
+    "title_en": "Wireless Fundamentals",
+    "title_vi": "Nguyên lý Mạng Không dây (Wireless Fundamentals)",
+    "lectureId": "zuYiktLqNYQ"
+  },
+  {
+    "day": 56,
+    "file": "Wireless_Architecutres.md",
+    "title_en": "Wireless Architectures",
+    "title_vi": "Kiến trúc Mạng Không dây (Wireless Architectures)",
+    "lectureId": "uX1h0F6wpBY"
+  },
+  {
+    "day": 57,
+    "file": "Wireless_Security.md",
+    "title_en": "Wireless Security",
+    "title_vi": "Bảo mật Mạng Không dây (Wireless Security)",
+    "lectureId": "wHXKo9So5y8"
+  },
+  {
+    "day": 58,
+    "file": "Wireless_Configuration.md",
+    "title_en": "Wireless Configuration",
+    "title_vi": "Cấu hình Mạng Không dây (Wireless Configuration)",
+    "lectureId": "r9o6GFI87go",
+    "labId": "Il8ev78fcqw"
+  },
+  {
+    "day": 59,
+    "file": "Introduction_to_Network_Automation.md",
+    "title_en": "Introduction to Network Automation",
+    "title_vi": "Giới thiệu về Tự động hóa Mạng (Introduction to Network Automation)",
+    "lectureId": "4tsBgMCPVuc"
+  },
+  {
+    "day": 60,
+    "file": "JSON_XML_YAML.md",
+    "title_en": "JSON, XML, and YAML",
+    "title_vi": "JSON, XML, và YAML",
+    "lectureId": "nohde2-QNJ4"
+  },
+  {
+    "day": 61,
+    "file": "REST_APIs.md",
+    "title_en": "REST APIs",
+    "title_vi": "Các REST API",
+    "lectureId": "Luei0p-2h10"
+  },
+  {
+    "day": 62,
+    "file": "Software_Defined_Networking.md",
+    "title_en": "SOFTWARE DEFINED NETWORKING",
+    "title_vi": "Mạng Xác định bằng Phần mềm (SDN)",
+    "lectureId": "7HhWCeXDTpA"
+  },
+  {
+    "day": 63,
+    "file": "Ansible_Puppet_Chef.md",
+    "title_en": "ANSIBLE, PUPPET, and CHEF",
+    "title_vi": "ANSIBLE, PUPPET, và CHEF",
+    "lectureId": "Kog9gHTjALI"
+  }
+]
