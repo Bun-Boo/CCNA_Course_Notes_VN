@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 import rehypeHighlight from 'rehype-highlight';
 import 'highlight.js/styles/github-dark.css';
 
@@ -31,6 +32,7 @@ const MarkdownRenderer = ({ content, searchQuery }) => {
   return (
     <div className="markdown-content max-w-none animate-fade-up">
       <ReactMarkdown
+        remarkPlugins={[remarkGfm]}
         rehypePlugins={[rehypeHighlight]}
         components={{
           h1: ({ node, ...props }) => (
@@ -51,7 +53,7 @@ const MarkdownRenderer = ({ content, searchQuery }) => {
             </h3>
           ),
           p: ({ node, ...props }) => (
-            <p className="text-text-secondary leading-[1.8] mb-8 text-lg font-body font-normal opacity-90">
+            <p className="text-text-primary/95 leading-[1.9] mb-10 text-[1.1rem] font-body font-normal tracking-wide">
               {wrapWithHighlight(props.children)}
             </p>
           ),
@@ -59,9 +61,9 @@ const MarkdownRenderer = ({ content, searchQuery }) => {
             <ul className="list-none space-y-4 mb-10 ml-2" {...props} />
           ),
           li: ({ node, ...props }) => (
-            <li className="flex gap-4 text-text-secondary text-lg leading-relaxed">
-              <span className="text-accent-coral mt-3 h-1.5 w-1.5 shrink-0 bg-accent-coral/80 rotate-45" />
-              <span className="opacity-90">{wrapWithHighlight(props.children)}</span>
+            <li className="flex gap-5 text-text-primary/90 text-[1.05rem] leading-relaxed mb-4">
+              <span className="text-accent-coral mt-2.5 h-1.5 w-1.5 shrink-0 bg-accent-coral/80 rotate-45 shadow-[0_0_8px_rgba(255,107,74,0.4)]" />
+              <span className="opacity-100">{wrapWithHighlight(props.children)}</span>
             </li>
           ),
           code: ({ node, inline, className, children, ...props }) => {
@@ -112,6 +114,30 @@ const MarkdownRenderer = ({ content, searchQuery }) => {
                 {props.children}
               </p>
             </div>
+          ),
+          table: ({ node, ...props }) => (
+            <div className="my-16 overflow-x-auto border border-border-default/50 bg-bg-surface/30 backdrop-blur-sm rounded-2xl shadow-2xl shadow-black/40 group/table">
+              <table className="w-full text-left border-collapse" {...props} />
+              <div className="p-2 border-t border-border-default/20 bg-black/5 flex justify-end">
+                <span className="text-[8px] font-display font-black text-text-dim tracking-[0.4em] uppercase opacity-40">System_Data_Table</span>
+              </div>
+            </div>
+          ),
+          thead: ({ node, ...props }) => (
+            <thead className="bg-bg-elevated/60 border-b-2 border-border-default/50" {...props} />
+          ),
+          th: ({ node, ...props }) => (
+            <th className="px-8 py-6 font-display text-xs font-black uppercase tracking-[0.4em] text-accent-amber" {...props}>
+              {wrapWithHighlight(props.children, true)}
+            </th>
+          ),
+          td: ({ node, ...props }) => (
+            <td className="px-8 py-6 text-text-primary/90 text-[0.95rem] font-body border-b border-white/5 group-hover/row:text-text-primary group-hover/row:bg-white/10 transition-all duration-300">
+              {wrapWithHighlight(props.children)}
+            </td>
+          ),
+          tr: ({ node, ...props }) => (
+            <tr className="group/row transition-all duration-300" {...props} />
           )
         }}
       >
@@ -122,3 +148,4 @@ const MarkdownRenderer = ({ content, searchQuery }) => {
 };
 
 export default MarkdownRenderer;
+

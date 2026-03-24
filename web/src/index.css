@@ -43,8 +43,8 @@
   --accent-amber: #FFB830;
   --accent-sky: #38BDF8;
   --text-primary: #F0EDE6;
-  --text-secondary: #8B9DB5;
-  --text-dim: #4A6180;
+  --text-secondary: #B0C4DE; /* Brighter, more readable grey-blue */
+  --text-dim: #607D8B; /* Brighter dim color */
   --border-default: #253549;
 }
 
