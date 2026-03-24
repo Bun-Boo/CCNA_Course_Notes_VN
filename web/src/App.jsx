@@ -10,13 +10,110 @@ function App() {
   const [content, setContent] = useState('');
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [theme, setTheme] = useState(localStorage.getItem('theme') || 'dark');
+  const [localSearchQuery, setLocalSearchQuery] = useState('');
+  const [matchIndex, setMatchIndex] = useState(-1);
+  const [matchCount, setMatchCount] = useState(0);
   const scrollContainerRef = useRef(null);
 
+  const toggleTheme = (e) => {
+    const newTheme = theme === 'dark' ? 'light' : 'dark';
+    
+    if (!document.startViewTransition) {
+      setTheme(newTheme);
+      return;
+    }
+
+    const x = e.clientX;
+    const y = e.clientY;
+    const endRadius = Math.hypot(
+      Math.max(x, innerWidth - x),
+      Math.max(y, innerHeight - y)
+    );
+
+    const transition = document.startViewTransition(() => {
+      setTheme(newTheme);
+    });
+
+    transition.ready.then(() => {
+      document.documentElement.animate(
+        {
+          clipPath: [
+            `circle(0 at ${x}px ${y}px)`,
+            `circle(${endRadius}px at ${x}px ${y}px)`,
+          ],
+        },
+        {
+          duration: 700,
+          easing: 'cubic-bezier(0.4, 0, 0.2, 1)',
+          pseudoElement: '::view-transition-new(root)',
+        }
+      );
+    });
+  };
+
   useEffect(() => {
+    if (theme === 'light') {
+      document.documentElement.classList.add('light');
+    } else {
+      document.documentElement.classList.remove('light');
+    }
+    localStorage.setItem('theme', theme);
+  }, [theme]);
+
+  useEffect(() => {
+    setLocalSearchQuery('');
+    setMatchIndex(-1);
+    setMatchCount(0);
     if (activeFile) {
       loadContent(activeFile, lang);
     }
   }, [activeFile, lang]);
+
+  // Handle Search Match Navigation
+  useEffect(() => {
+    const matches = document.querySelectorAll('.search-highlight');
+    setMatchCount(matches.length);
+    if (matches.length > 0) {
+      setMatchIndex(0);
+    } else {
+      setMatchIndex(-1);
+    }
+  }, [localSearchQuery, content]);
+
+  useEffect(() => {
+    const matches = document.querySelectorAll('.search-highlight');
+    matches.forEach((m, i) => {
+      if (i === matchIndex) {
+        m.classList.add('search-highlight-active');
+        m.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      } else {
+        m.classList.remove('search-highlight-active');
+      }
+    });
+  }, [matchIndex]);
+
+  const handleKeyDown = (e) => {
+    if (e.key === 'Enter') {
+      if (e.shiftKey) {
+        goToPrevMatch();
+      } else {
+        goToNextMatch();
+      }
+    }
+  };
+
+  const goToNextMatch = () => {
+    if (matchCount > 0) {
+      setMatchIndex((prev) => (prev + 1) % matchCount);
+    }
+  };
+
+  const goToPrevMatch = () => {
+    if (matchCount > 0) {
+      setMatchIndex((prev) => (prev - 1 + matchCount) % matchCount);
+    }
+  };
 
   const loadContent = async (file, currentLang) => {
     setIsLoading(true);
@@ -41,7 +138,81 @@ function App() {
   const nextNote = currentIndex < notesList.length - 1 ? notesList[currentIndex + 1] : null;
 
   return (
-    <div className="min-h-screen bg-bg-deep flex font-body selection:bg-accent-coral/30 selection:text-text-primary">
+    <div className="min-h-screen bg-bg-deep flex font-body selection:bg-accent-coral/30 selection:text-text-primary transition-colors duration-700">
+      {/* Search & Theme Controls (Floating) */}
+      <div className={`fixed top-8 right-8 z-40 flex items-center gap-4 transition-all duration-500 transform ${isLoading ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}>
+        {/* Theme Toggle */}
+        <button 
+          onClick={toggleTheme}
+          className="w-14 h-14 flex items-center justify-center bg-bg-surface/80 backdrop-blur-3xl border border-border-default/50 rounded-full text-accent-amber shadow-2xl hover:border-accent-amber/50 transition-all duration-500 group"
+          title={theme === 'dark' ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
+        >
+          {theme === 'dark' ? (
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="group-hover:rotate-12 transition-transform duration-500">
+              <circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+            </svg>
+          ) : (
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="group-hover:-rotate-12 transition-transform duration-500">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+          )}
+        </button>
+
+        {/* Search Bar */}
+        <div className={`
+          group flex items-center bg-bg-surface/80 backdrop-blur-3xl border border-border-default/50 rounded-full transition-all duration-700 ease-[cubic-bezier(0.23,1,0.32,1)] shadow-[0_25px_80px_rgba(0,0,0,0.6)] overflow-hidden
+          ${localSearchQuery ? 'w-[480px] h-14' : 'w-14 h-14 hover:w-[480px]'}
+        `}>
+          {/* Icon Anchor - Perfectly centered in the 56px circle */}
+          <div className="w-14 h-14 flex items-center justify-center shrink-0 text-accent-amber transition-transform duration-500 group-hover:scale-110">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="drop-shadow-[0_0_10px_rgba(255,184,48,0.4)]">
+              <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+          </div>
+          
+          <input 
+            type="text"
+            placeholder={lang === 'vi' ? 'TÌM KIẾM TRONG BÀI...' : 'SEARCH IN PAGE...'}
+            value={localSearchQuery}
+            onChange={(e) => setLocalSearchQuery(e.target.value)}
+            onKeyDown={handleKeyDown}
+            className={`
+              bg-transparent font-display text-[10px] uppercase font-black tracking-[0.2em] text-text-primary placeholder:text-text-dim/40 focus:outline-none transition-all duration-700
+              ${localSearchQuery ? 'flex-1 opacity-100' : 'w-0 opacity-0 group-hover:flex-1 group-hover:opacity-100'}
+            `}
+          />
+          
+          <div className={`
+            flex items-center gap-4 transition-all duration-700 shrink-0 pr-5
+            ${localSearchQuery ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8 pointer-events-none group-hover:opacity-100 group-hover:translate-x-0'}
+          `}>
+            {matchCount > 0 && (
+              <div className="font-display text-[10px] font-black tracking-widest flex items-center gap-2">
+                <span className="text-accent-amber tabular-nums">{String(matchIndex + 1).padStart(2, '0')}</span>
+                <span className="text-accent-coral/40">/</span>
+                <span className="text-text-dim tabular-nums">{String(matchCount).padStart(2, '0')}</span>
+              </div>
+            )}
+            
+            <div className="flex items-center gap-1 border-l border-border-default/50 pl-4">
+              <div className="flex flex-col">
+                <button onClick={goToPrevMatch} className="text-text-dim hover:text-accent-amber transition-all p-1 hover:scale-125 focus:text-accent-amber" title="Previous (Shift+Enter)">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="18 15 12 9 6 15"></polyline></svg>
+                </button>
+                <button onClick={goToNextMatch} className="text-text-dim hover:text-accent-amber transition-all p-1 hover:scale-125 focus:text-accent-amber" title="Next (Enter)">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </button>
+              </div>
+              <button 
+                onClick={() => setLocalSearchQuery('')}
+                className="text-text-dim hover:text-accent-coral transition-all p-2 hover:bg-white/5 rounded-full ml-1"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
       {/* Mobile Backdrop */}
       {isSidebarOpen && (
         <div 
@@ -147,7 +318,7 @@ function App() {
               </div>
             ) : (
               <div className="animate-fade-up">
-                <MarkdownRenderer content={content} />
+                <MarkdownRenderer content={content} searchQuery={localSearchQuery} />
                 
                 <Pagination 
                   prev={prevNote ? { ...prevNote, title: lang === 'vi' ? prevNote.title_vi : prevNote.title_en } : null}

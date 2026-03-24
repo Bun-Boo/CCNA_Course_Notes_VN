@@ -3,29 +3,57 @@ import ReactMarkdown from 'react-markdown';
 import rehypeHighlight from 'rehype-highlight';
 import 'highlight.js/styles/github-dark.css';
 
-const MarkdownRenderer = ({ content }) => {
+const MarkdownRenderer = ({ content, searchQuery }) => {
+  const highlightText = (text, isHeader = false) => {
+    if (!searchQuery || searchQuery.length < 2 || typeof text !== 'string') return text;
+    const parts = text.split(new RegExp(`(${searchQuery})`, 'gi'));
+    return parts.map((part, i) => 
+      part.toLowerCase() === searchQuery.toLowerCase() 
+        ? <mark 
+            key={i} 
+            className={isHeader 
+              ? "search-highlight bg-transparent text-accent-amber underline decoration-accent-amber/30 underline-offset-8 transition-all duration-300" 
+              : "search-highlight bg-accent-amber/20 text-text-primary px-0.5 rounded-sm transition-all duration-300"}
+          >
+            {part}
+          </mark> 
+        : part
+    );
+  };
+
+  const wrapWithHighlight = (children, isHeader = false) => {
+    return React.Children.map(children, child => {
+      if (typeof child === 'string') return highlightText(child, isHeader);
+      return child;
+    });
+  };
+
   return (
     <div className="markdown-content max-w-none animate-fade-up">
       <ReactMarkdown
         rehypePlugins={[rehypeHighlight]}
         components={{
           h1: ({ node, ...props }) => (
-            <h1 className="font-display text-4xl md:text-5xl font-bold text-text-primary mb-12 flex items-center gap-6" {...props} />
+            <h1 className="font-display text-4xl md:text-5xl font-bold text-text-primary mb-12 flex items-center gap-6">
+              <span>{wrapWithHighlight(props.children, true)}</span>
+            </h1>
           ),
           h2: ({ node, ...props }) => (
             <h2 className="font-display text-2xl md:text-3xl font-bold text-text-primary mt-20 mb-8 flex items-center">
               <span className="text-accent-coral font-display text-sm tracking-[0.3em] mr-4 opacity-70">//</span>
-              {props.children}
+              <span>{wrapWithHighlight(props.children, true)}</span>
             </h2>
           ),
           h3: ({ node, ...props }) => (
             <h3 className="font-display text-xl md:text-2xl font-bold text-text-primary mt-12 mb-6 flex items-center">
               <span className="text-accent-amber font-display text-xs tracking-[0.2em] mr-3 opacity-60">//</span>
-              {props.children}
+              <span>{wrapWithHighlight(props.children, true)}</span>
             </h3>
           ),
           p: ({ node, ...props }) => (
-            <p className="text-text-secondary leading-[1.8] mb-8 text-lg font-body font-normal opacity-90" {...props} />
+            <p className="text-text-secondary leading-[1.8] mb-8 text-lg font-body font-normal opacity-90">
+              {wrapWithHighlight(props.children)}
+            </p>
           ),
           ul: ({ node, ...props }) => (
             <ul className="list-none space-y-4 mb-10 ml-2" {...props} />
@@ -33,7 +61,7 @@ const MarkdownRenderer = ({ content }) => {
           li: ({ node, ...props }) => (
             <li className="flex gap-4 text-text-secondary text-lg leading-relaxed">
               <span className="text-accent-coral mt-3 h-1.5 w-1.5 shrink-0 bg-accent-coral/80 rotate-45" />
-              <span className="opacity-90">{props.children}</span>
+              <span className="opacity-90">{wrapWithHighlight(props.children)}</span>
             </li>
           ),
           code: ({ node, inline, className, children, ...props }) => {
