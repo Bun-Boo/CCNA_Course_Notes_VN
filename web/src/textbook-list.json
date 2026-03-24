@@ -1,0 +1,332 @@
+[
+  {
+    "file": "Network_Devices.md",
+    "title": "1. CÁC THIẾT BỊ MẠNG (NETWORKING DEVICES)",
+    "day": 1
+  },
+  {
+    "file": "Interfaces_and_Cables.md",
+    "title": "2. CỔNG KẾT NỐI VÀ CÁP (INTERFACES AND CABLES)",
+    "day": 2
+  },
+  {
+    "file": "OSI_Model_TCPSuite.md",
+    "title": "3. MÔ HÌNH OSI & BỘ GIAO THỨC TCP/IP (OSI MODEL & TCP/IP SUITE)",
+    "day": 3
+  },
+  {
+    "file": "Intro_to_CLI.md",
+    "title": "4. GIỚI THIỆU VỀ GIAO DIỆN DÒNG LỆNH (CLI)",
+    "day": 4
+  },
+  {
+    "file": "Ethernet_LAN_Switching_Part1.md",
+    "title": "5. CHUYỂN MẠCH MẠNG LAN ETHERNET : PHẦN 1",
+    "day": 5
+  },
+  {
+    "file": "Ethernet_LAN_Switching_Part2.md",
+    "title": "6. CHUYỂN MẠCH MẠNG LAN ETHERNET : PHẦN 2",
+    "day": 6
+  },
+  {
+    "file": "IPv4_Addressing_Part1.md",
+    "title": "7. ĐỊA CHỈ IPv4 : PHẦN 1",
+    "day": 7
+  },
+  {
+    "file": "IPv4_Addressing_Part2.md",
+    "title": "8. ĐỊA CHỈ IPv4 : PHẦN 2",
+    "day": 8
+  },
+  {
+    "file": "Switch_Interfaces.md",
+    "title": "9. CÁC GIAO DIỆN CỦA SWITCH (SWITCH INTERFACES)",
+    "day": 9
+  },
+  {
+    "file": "The_IPv4_Header.md",
+    "title": "10. TIÊU ĐỀ IPv4 (THE IPv4 HEADER)",
+    "day": 10
+  },
+  {
+    "file": "Routing_Fundamentals_Part1.md",
+    "title": "11. KIẾN THỨC CƠ BẢN VỀ ĐỊNH TUYẾN : PHẦN 1",
+    "day": 11
+  },
+  {
+    "file": "Static_Routing_Part2.md",
+    "title": "11. ĐỊNH TUYẾN TĨNH : PHẦN 2",
+    "day": 11
+  },
+  {
+    "file": "Life_of_a_Packet.md",
+    "title": "12. VÒNG ĐỜI CỦA MỘT GÓI TIN (LIFE OF A PACKET)",
+    "day": 12
+  },
+  {
+    "file": "Subnetting_Part1.md",
+    "title": "13. CHIA MẠNG CON (SUBNETTING) : PHẦN 1",
+    "day": 13
+  },
+  {
+    "file": "Subnetting_Part2.md",
+    "title": "14. CHIA MẠNG CON (SUBNETTING) : PHẦN 2",
+    "day": 14
+  },
+  {
+    "file": "Subnetting_VLSM_Part3.md",
+    "title": "15. CHIA MẠNG CON (VLSM) : PHẦN 3",
+    "day": 15
+  },
+  {
+    "file": "VLAN_Part1.md",
+    "title": "16. MẠNG LAN ẢO (VLANS) : PHẦN 1",
+    "day": 16
+  },
+  {
+    "file": "VLAN_Part2.md",
+    "title": "17. MẠNG LAN ẢO (VLANS) : PHẦN 2",
+    "day": 17
+  },
+  {
+    "file": "VLAN_Part3.md",
+    "title": "18. MẠNG LAN ẢO (VLANS) : PHẦN 3",
+    "day": 18
+  },
+  {
+    "file": "DTP_VTP.md",
+    "title": "19. DTP / VTP (Không nằm trong Giáo trình)",
+    "day": 19
+  },
+  {
+    "file": "Spanning_Tree_Protocol_Part1.md",
+    "title": "20. GIAO THỨC CÂY KHUNG (STP) : PHẦN 1",
+    "day": 20
+  },
+  {
+    "file": "Spanning_Tree_Protocol_Part2.md",
+    "title": "21. GIAO THỨC CÂY KHUNG (STP) : PHẦN 2",
+    "day": 21
+  },
+  {
+    "file": "Rapid_Spanning_Tree_Protocol.md",
+    "title": "22. GIAO THỨC CÂY KHUNG NHANH (RAPID SPANNING TREE PROTOCOL - RSTP)",
+    "day": 22
+  },
+  {
+    "file": "Etherchannel.md",
+    "title": "23. ETHERCHANNEL",
+    "day": 23
+  },
+  {
+    "file": "DynamicRouting.md",
+    "title": "24. ĐỊNH TUYẾN ĐỘNG (DYNAMIC ROUTING)",
+    "day": 24
+  },
+  {
+    "file": "RIP_and_EIGRP.md",
+    "title": "25. RIP và EIGRP (IGP : VECTOR KHOẢNG CÁCH)",
+    "day": 25
+  },
+  {
+    "file": "OSPF_Part1.md",
+    "title": "26. OSPF : PHẦN 1 (IGP : TRẠNG THÁI LIÊN KẾT)",
+    "day": 26
+  },
+  {
+    "file": "OSPF_Part2.md",
+    "title": "27. OSPF : PHẦN 2 (IGP : TRẠNG THÁI LIÊN KẾT)",
+    "day": 27
+  },
+  {
+    "file": "OSPF_Part3.md",
+    "title": "28. OSPF : PHẦN 3 (IGP: TRẠNG THÁI LIÊN KẾT)",
+    "day": 28
+  },
+  {
+    "file": "First_Hop_Redundancy_Protocols.md",
+    "title": "29. CÁC GIAO THỨC DỰ PHÒNG BƯỚC NHẢY ĐẦU TIÊN (FIRST HOP REDUNDANCY PROTOCOLS)",
+    "day": 29
+  },
+  {
+    "file": "TCP_and_UDP.md",
+    "title": "30. TCP và UDP (CÁC GIAO THỨC LỚP 4)",
+    "day": 30
+  },
+  {
+    "file": "IPv6_Part1.md",
+    "title": "31. IPv6 : PHẦN 1",
+    "day": 31
+  },
+  {
+    "file": "IPv6_Part2.md",
+    "title": "32. IPv6 : PHẦN 2",
+    "day": 32
+  },
+  {
+    "file": "IPv6_Part3.md",
+    "title": "33. IPv6 : PHẦN 3",
+    "day": 33
+  },
+  {
+    "file": "Standard_Access_Control_Lists.md",
+    "title": "34. DANH SÁCH KIỂM SOÁT TRUY CẬP TIÊU CHUẨN (STANDARD ACL)",
+    "day": 34
+  },
+  {
+    "file": "Extended_Access_Control_Lists.md",
+    "title": "35. DANH SÁCH KIỂM SOÁT TRUY CẬP MỞ RỘNG (EXTENDED ACL)",
+    "day": 35
+  },
+  {
+    "file": "CDP_and_LLDP.md",
+    "title": "36. CDP và LLDP (Giao thức Phát hiện Lớp 2)",
+    "day": 36
+  },
+  {
+    "file": "NTP.md",
+    "title": "37. NTP (Network Time Protocol)",
+    "day": 37
+  },
+  {
+    "file": "DNS.md",
+    "title": "38. DNS (Hệ thống Phân giải Tên miền - Domain Name System)",
+    "day": 38
+  },
+  {
+    "file": "DHCP.md",
+    "title": "39. DHCP (Giao thức Cấu hình Máy chủ Động - Dynamic Host Configuration Protocol)",
+    "day": 39
+  },
+  {
+    "file": "SNMP.md",
+    "title": "40. SNMP (Giao thức Quản lý Mạng Đơn giản - Simple Network Management Protocol)",
+    "day": 40
+  },
+  {
+    "file": "SYSLOG.md",
+    "title": "41. SYSLOG",
+    "day": 41
+  },
+  {
+    "file": "SSH.md",
+    "title": "42. SSH (Vỏ bảo mật - Secure Shell)",
+    "day": 42
+  },
+  {
+    "file": "FTP_and_TFTP.md",
+    "title": "43. FTP và TFTP",
+    "day": 43
+  },
+  {
+    "file": "NAT_Static_Part1.md",
+    "title": "44. NAT (TĨNH): PHẦN 1",
+    "day": 44
+  },
+  {
+    "file": "NAT_Dynamic_Part2.md",
+    "title": "45. NAT (ĐỘNG): PHẦN 2",
+    "day": 45
+  },
+  {
+    "file": "QoS_VoiceLan.md",
+    "title": "46. QoS (VLAN cho Thoại): PHẦN 1",
+    "day": 46
+  },
+  {
+    "file": "QoS_Quality_of_Service.md",
+    "title": "47. Chất lượng Dịch vụ (QoS - Quality of Service): PHẦN 2",
+    "day": 47
+  },
+  {
+    "file": "Security_Fundamentals.md",
+    "title": "48. CÁC NGUYÊN LÝ CƠ BẢN VỀ BẢO MẬT (SECURITY FUNDAMENTALS)",
+    "day": 48
+  },
+  {
+    "file": "Port_Security.md",
+    "title": "49. BẢO MẬT CỔNG (PORT SECURITY)",
+    "day": 49
+  },
+  {
+    "file": "DHCP_Snooping.md",
+    "title": "50. GIÁM SÁT DHCP (DHCP SNOOPING - LỚP 2)",
+    "day": 50
+  },
+  {
+    "file": "Dynamic_Arp_Inspection.md",
+    "title": "51. KIỂM TRA ARP ĐỘNG (DAI - DYNAMIC ARP INSPECTION)",
+    "day": 51
+  },
+  {
+    "file": "LAN_Architectures.md",
+    "title": "52. CÁC KIẾN TRÚC MẠNG LAN (LAN ARCHITECTURES)",
+    "day": 52
+  },
+  {
+    "file": "WAN_Architectures.md",
+    "title": "53. CÁC KIẾN TRÚC MẠNG WAN (WAN ARCHITECTURES)",
+    "day": 53
+  },
+  {
+    "file": "Virtualization_Containers.md",
+    "title": "54. ẢO HÓA (CÁC CONTAINER): PHẦN 2",
+    "day": 54
+  },
+  {
+    "file": "Virtualization_VRF_Part3.md",
+    "title": "54. ẢO HÓA (VRF): PHẦN 3",
+    "day": 54
+  },
+  {
+    "file": "Virtualizations_and_Cloud_Part1.md",
+    "title": "54. ẢO HÓA VÀ ĐIỆN TOÁN ĐÁM MÂY (VIRTUALIZATION AND CLOUD): PHẦN 1",
+    "day": 54
+  },
+  {
+    "file": "Wireless_Fundamentals.md",
+    "title": "55. CÁC NGUYÊN LÝ CƠ BẢN VỀ MẠNG KHÔNG DÂY (WIRELESS FUNDAMENTALS)",
+    "day": 55
+  },
+  {
+    "file": "Wireless_Architecutres.md",
+    "title": "56. CÁC KIẾN TRÚC MẠNG KHÔNG DÂY (WIRELESS ARCHITECTURES)",
+    "day": 56
+  },
+  {
+    "file": "Wireless_Security.md",
+    "title": "57. BẢO MẬT MẠNG KHÔNG DÂY (WIRELESS SECURITY)",
+    "day": 57
+  },
+  {
+    "file": "Wireless_Configuration.md",
+    "title": "58. CẤU HÌNH MẠNG KHÔNG DÂY (WIRELESS CONFIGURATION)",
+    "day": 58
+  },
+  {
+    "file": "Introduction_to_Network_Automation.md",
+    "title": "59. GIỚI THIỆU VỀ TỰ ĐỘNG HÓA MẠNG (INTRODUCTION TO NETWORK AUTOMATION)",
+    "day": 59
+  },
+  {
+    "file": "JSON_XML_YAML.md",
+    "title": "60. JSON, XML, VÀ YAML",
+    "day": 60
+  },
+  {
+    "file": "REST_APIs.md",
+    "title": "61. CÁC REST API (REST APIS)",
+    "day": 61
+  },
+  {
+    "file": "Software_Defined_Networking.md",
+    "title": "62. MẠNG XÁC ĐỊNH BẰNG PHẦN MỀM (SDN)",
+    "day": 62
+  },
+  {
+    "file": "Ansible_Puppet_Chef.md",
+    "title": "63. ANSIBLE, PUPPET, VÀ CHEF",
+    "day": 63
+  }
+]
